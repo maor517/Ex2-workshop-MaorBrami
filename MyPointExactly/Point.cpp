@@ -17,7 +17,7 @@ Point::Point(int x, int y)
 Point::Point(const Point& other)
 {
 	delete _coord;
-	_coord = other._coord;
+	*this = other; // added this line 
 }
 
 Point::~Point()
@@ -29,7 +29,7 @@ Point& Point::operator=(const Point& other)
 {
 	delete _coord;
 	_coord = new int[2];
-	memcpy(_coord, other._coord, 2);
+	memcpy(_coord, other._coord, sizeof(int) * 2); // changed 2 to sizeof(int) * 2
 	return *this;
 }
 

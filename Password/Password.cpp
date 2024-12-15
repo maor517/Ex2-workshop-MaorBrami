@@ -1,5 +1,9 @@
 #include <iostream>
 
+// input: 16 chars and enter
+// reason: the value contains 16 chars but one of them is null, if you enter 16 chars there is
+// an overflow to incorrect
+
 struct Password
 {
 	char value[16];

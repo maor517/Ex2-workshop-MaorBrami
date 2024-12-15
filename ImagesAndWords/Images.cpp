@@ -29,7 +29,7 @@ bool WriteImage(Image* img, const char* filename)
 	os.write((char*)&img->header, sizeof(ImageHeader));
 
 	// calculate image size
-	uint16_t imgsize = img->header.width * img->header.height;
+	int imgsize = img->header.width * img->header.height;
 
 	// write image content
 	os.write(img->data, imgsize);
@@ -49,7 +49,7 @@ Image *ReadImage(const char* filename)
 	is.read((char*)&img->header, sizeof(ImageHeader));
 
 	// calculate image size
-	uint16_t imgsize = img->header.width * img->header.height;
+	int imgsize = img->header.width * img->header.height; // changed imgsize type to int from uint16_t
 	img->data = new char[imgsize];
 
 	// read image content
@@ -93,7 +93,7 @@ Image *GenerateDummyImage(uint16_t width, uint16_t height)
 
 int main()
 {
-	Image *im = ReadImage("img1.magi");
+	Image *im = ReadImage("img2.magi");
 	FreeImage(im);
 
 	return 0;

@@ -2,7 +2,7 @@
 
 int main()
 {
-	unsigned int size = 0;
+	int size = 0; // changed unsigned int to int because unsigned int can never be smaller than 0 and that created an infinate loop
 
 	int t1 = 0, t2 = 1;
 
